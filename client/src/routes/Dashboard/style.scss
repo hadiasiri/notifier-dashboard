@@ -1,0 +1,11 @@
+@import "../../assets/style/global";
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  .logout-btn {
+    align-self: flex-end;
+    margin: 20px;
+    @include btn-circle($light-red, $dark-red);
+  }
+}

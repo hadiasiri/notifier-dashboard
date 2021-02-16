@@ -1,0 +1,28 @@
+{
+  "name": "notifier-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "nodemonConfig": {},
+  "scripts": {
+    "client": "cd client && npm start",
+    "server": "nodemon index.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run client\" \"npm run server\"",
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "expo-server-sdk": "^3.6.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.15",
+    "mongoose-auto-increment": "^5.0.1",
+    "nodemon": "^2.0.7"
+  }
+}

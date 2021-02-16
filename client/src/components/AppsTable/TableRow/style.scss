@@ -1,0 +1,141 @@
+@import "../../../assets/style/global";
+
+.table-row-container {
+  .icon-img {
+    width: 25px;
+    margin-inline-end: 20px;
+    object-fit: contain;
+    filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.2));
+
+    cursor: pointer;
+    transition: 0.3s ease;
+    &:hover {
+      opacity: 0.8;
+    }
+    &:active {
+      transition: none;
+      transform: scale(0.95);
+    }
+  }
+  td {
+    padding: 10px 0px;
+    font-size: 18px;
+    &:nth-last-child(1) {
+      user-select: none;
+      display: flex;
+      width: max-content;
+      padding-inline-end: 30px;
+      .notify-btn {
+        @include btn-add;
+        padding: 5px 20px;
+        font-size: 16px;
+        .notification-icon {
+          margin-inline-start: 20px;
+          font-size: 28px;
+        }
+      }
+    }
+  }
+
+  .editapp-box-container,
+  .deleteapp-box-container,
+  .notification-box-container {
+    z-index: 10;
+    position: fixed;
+    overflow-y: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+  }
+
+  .editapp-box,
+  .deleteapp-box,
+  .notification-box {
+    position: relative;
+    background-color: $white;
+    padding: 30px;
+    width: 450px;
+    max-width: 95%;
+    height: max-content;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include box-animate;
+    .close-icon {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      cursor: pointer;
+      font-size: 26px;
+      color: $dark-gray;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    .input-box {
+      background-color: $white;
+      box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+      display: block;
+      margin-top: 30px;
+      @include input;
+      width: 100%;
+      color: $black;
+      &::placeholder {
+        color: $dark-gray;
+      }
+    }
+    .submit-btn {
+      margin-top: 30px;
+      display: block;
+      cursor: pointer;
+      background-color: $light-green;
+      border: 1.5px solid $dark-green;
+      color: $white;
+      border-radius: 9px 0 9px 0;
+      padding: 5px 20px;
+      transition: 0.2s ease;
+      outline: none;
+      width: max-content;
+      font-size: 20px;
+      &:hover {
+        background-color: $dark-green;
+      }
+      &:active {
+        transform: scale(0.95);
+        transition: 0s ease;
+      }
+    }
+  }
+
+  .deleteapp-box {
+    .action-btns {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      button {
+        display: inline-block;
+        width: 100px;
+      }
+    }
+    .no-btn {
+      @include btn-adv($light-red, $dark-red);
+    }
+  }
+
+  .notification-box {
+    .notice-txt {
+      color: $dark-gray;
+      align-self: flex-end;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  }
+}
